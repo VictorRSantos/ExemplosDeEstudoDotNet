@@ -1,0 +1,42 @@
+﻿@model Web.Models.Usuario
+
+@{
+    ViewBag.Title = "Usuário";
+}
+
+<form asp-action="Adicionar" asp-controller="Usuario" method="post">
+
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Adicionar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Nome</label>
+                            <input class="form-control" asp-for="@Model.Nome" />
+                        </div>
+                        <div class="col-md-4">
+                            <label>Username</label>
+                            <input class="form-control" asp-for="@Model.UserName" />
+                        </div>
+                        <div class="col-md-4">
+                            <label>Senha</label>
+                            <input class="form-control" asp-for="@Model.Senha" type="password" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+
+</form>

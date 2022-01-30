@@ -1,0 +1,30 @@
+﻿<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>UserName</th>
+            <th>Senha</th>
+            <th>Editar</th>
+            <th>Detalhes</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.Usuarios)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>@item.UserName</td>
+                <td>@item.Senha</td>
+                <td> <button class="btn btn-primary edit" data-id="@item.Id">Editar<i class="glyphicon glyphicon-edit"></i></button></td>
+                <td><button class="btn btn-success details" asp-for-id="@item.Id">Detalhes<i class="glyphicon glyphicon-file"></i></button></td>
+                <td> <button class="btn btn-danger delete" asp-for-id="@item.Id">Deletar<i class="glyphicon glyphicon-trash"></i></button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

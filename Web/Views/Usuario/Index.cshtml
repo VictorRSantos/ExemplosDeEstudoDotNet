@@ -1,0 +1,54 @@
+﻿@model Web.Models.Usuario
+
+@{
+    ViewBag.Title = "Usuário";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="Container">
+    <h1 class="text-center">Usuário</h1>
+
+   <button class="btn btn-success create">Criar Novo Cliente <i class="glyphicon glyphicon-open"></i></button>
+
+    @await Html.PartialAsync("_Tabela")
+</div>
+
+
+<div id="modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"  aria-hidden="true"/>
+
+@section Scripts
+{
+       <script>
+        $(function () {
+            $(".details").click(function () {
+                var id = $(this).attr("asp-for-id");
+                $("#modal").load("Usuario/Detalhes?id=" + id, function () {
+                    $("#modal").modal();
+                })
+            });
+
+            $(".edit").click(function () {
+                var id = $(this).attr("data-id");
+                $("#modal").load("Usuario/Editar?id=" + id, function () {
+                    $("#modal").modal();
+                })
+            });
+
+            $(".delete").click(function () {
+                var id = $(this).attr("asp-for-id");
+                $("#modal").load("Usuario/Delete?id=" + id, function () {
+                    $("#modal").modal();
+                })
+            });
+
+           $(".create").click(function () {
+                $("#modal").load("Usuario/Adicionar", function () {
+                    $("#modal").modal();
+                })
+            });
+
+        })
+    </script>
+
+}
